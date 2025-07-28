@@ -1,0 +1,84 @@
+openapi: 3.0.0
+info:
+  title: Adapt Ready | Indian Cuisine API
+  version: 1.0.0
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: []
+paths:
+  /api/dishes:
+    get:
+      security:
+        - bearerAuth: []
+      summary: Get all dishes with optional LHS-style filters
+      parameters:
+        - name: diet[eq]
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: prep_time[gte]
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: cook_time[lte]
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: course[contains]
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: ingredients[contains]
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: state[eq]
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: region[eq]
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of dishes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    ingredients:
+                      type: string
+                    diet:
+                      type: string
+                    prep_time:
+                      type: integer
+                    cook_time:
+                      type: integer
+                    flavor_profile:
+                      type: string
+                    course:
+                      type: string
+                    state:
+                      type: string
+                    region:
+                      type: string
+                    image:
+                      type: string

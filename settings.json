@@ -1,0 +1,18 @@
+{
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features",
+        "editor.tabSize": 2
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features",
+        "editor.tabSize": 2
+    },
+    "[typescript]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
+    "[html]": {
+        "editor.tabSize": 2
+    },
+    "editor.tabSize": 2
+}
